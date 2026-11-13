@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fahzya-Portofolio</title>
+    <meta name="description" content="Portofolio Fahzya Ubung Irang (Zia), mahasiswa Teknik Informatika UKSW, UI/UX Design dan Web Development." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --bg: #0b0d12;
+        --bg2: #12151c;
+        --card: #161a23;
+        --line: #242a37;
+        --text: #e9ecf2;
+        --muted: #9aa3b5;
+        --accent: #ff8a1f;
+        --accent2: #ffb14d;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 76px;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: min(1120px, 92%);
+        margin: auto;
+      }
+      section {
+        padding: 88px 0;
+        border-top: 1px solid var(--line);
+      }
+      .label {
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      h2 {
+        font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+        margin-bottom: 36px;
+        line-height: 1.25;
+      }
+      h2 span,
+      .hl {
+        color: var(--accent);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: 1.5px solid var(--accent);
+        transition: 0.25s;
+        cursor: pointer;
+        background: none;
+        color: var(--text);
+        font-family: inherit;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #14100a;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(255, 138, 31, 0.25);
+      }
+
+      /* NAVIGATION */
+      header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        background: rgba(11, 13, 18, 0.82);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
+      .logo b {
+        color: var(--accent);
+      }
+      .links {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .links a {
+        transition: 0.2s;
+      }
+      .links a:hover,
+      .links a.active {
+        color: var(--accent);
+      }
+      .burger {
+        display: none;
+        background: none;
+        border: 0;
+        color: var(--text);
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      #home {
+        padding: 140px 0 90px;
+        border: 0;
+        background: radial-gradient(circle at 78% 30%, rgba(255, 138, 31, 0.14), transparent 45%);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hello {
+        color: var(--accent);
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        font-weight: 600;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4.1rem);
+        line-height: 1.1;
+        margin: 12px 0 6px;
+      }
+      .role {
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+        min-height: 2em;
+      }
+      .role span {
+        color: var(--accent);
+        border-right: 2px solid var(--accent);
+        padding-right: 4px;
+      }
+      .hero p.desc {
+        color: var(--muted);
+        max-width: 520px;
+        margin-bottom: 28px;
+      }
+      .cta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 26px;
+      }
+
+      /* SOCIAL ICONS */
+      .social-links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .social-icon {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        flex: 0 0 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: transparent;
+        color: var(--muted);
+        transition:
+          background 0.25s,
+          border-color 0.25s,
+          transform 0.25s,
+          color 0.25s;
+      }
+      .social-icon img {
+        display: block;
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        object-fit: contain;
+      }
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .social-icon:hover {
+        border-color: var(--accent);
+        background: rgba(255, 138, 31, 0.08);
+        transform: translateY(-3px);
+        color: var(--accent);
+      }
+      .social-icon:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      /* PROFILE PHOTO */
+      .photo-wrap {
+        position: relative;
+        width: min(380px, 100%);
+        aspect-ratio: 3/4;
+        margin: auto;
+      }
+      .photo-wrap::before {
+        content: '';
+        position: absolute;
+        inset: -14px;
+        border: 2px solid var(--accent);
+        border-radius: 50% 50% 24px 24px;
+        opacity: 0.55;
+        animation: pulse 4s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .photo-wrap > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50% 50% 20px 20px;
+        background: var(--card);
+      }
+      @keyframes pulse {
+        50% {
+          transform: scale(1.03);
+          opacity: 0.9;
+        }
+      }
+      .chip {
+        position: absolute;
+        background: rgba(22, 26, 35, 0.92);
+        border: 1px solid var(--line);
+        padding: 7px 14px;
+        border-radius: 12px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        animation: float 5s ease-in-out infinite;
+      }
+      .chip:nth-of-type(1) {
+        top: 6%;
+        right: -6%;
+      }
+      .chip:nth-of-type(2) {
+        top: 46%;
+        left: -12%;
+        animation-delay: 1s;
+      }
+      .chip:nth-of-type(3) {
+        bottom: 8%;
+        right: -4%;
+        animation-delay: 2s;
+      }
+      @keyframes float {
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ABOUT */
+      .about {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      .about p {
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .info {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 24px;
+      }
+      .info div {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 11px 0;
+        border-bottom: 1px dashed var(--line);
+        font-size: 0.88rem;
+      }
+      .info div:last-child {
+        border: 0;
+      }
+      .info span {
+        color: var(--muted);
+      }
+      .info b {
+        text-align: right;
+        font-weight: 500;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 30px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+      }
+      .stat b {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--accent);
+      }
+      .stat small {
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      /* FOCUS */
+      .grid4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+        transition: 0.3s;
+      }
+      .card:hover {
+        border-color: var(--accent);
+        transform: translateY(-6px);
+        box-shadow: 0 14px 32px rgba(255, 138, 31, 0.1);
+      }
+      .card .ic {
+        color: var(--accent);
+        width: 44px;
+        height: 44px;
+        margin-bottom: 14px;
+      }
+      .card .ic svg {
+        width: 100%;
+        height: 100%;
+      }
+      .card:hover .ic {
+        color: var(--accent2);
+      }
+      .card h3 {
+        font-size: 1.02rem;
+        margin-bottom: 6px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      /* SKILLS */
+      .skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 44px;
+      }
+      .track {
+        height: 7px;
+        background: var(--line);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 99px;
+        transition: width 1.3s ease;
+      }
+      .grp {
+        margin-bottom: 34px;
+      }
+      .gh {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 15px;
+        border: 1px solid #4a5163;
+        border-radius: 99px;
+        font-size: 0.84rem;
+        color: var(--text);
+        transition: 0.25s;
+      }
+      .pill img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+      }
+      .pill:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .pill.main {
+        background: rgba(255, 138, 31, 0.1);
+        border-color: rgba(255, 138, 31, 0.45);
+        color: var(--accent2);
+        font-weight: 600;
+      }
+
+      /* PROJECTS */
+      .filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .filters button {
+        padding: 8px 20px;
+        border-radius: 99px;
+        border: 1px solid var(--line);
+        background: none;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.82rem;
+        transition: 0.2s;
+      }
+      .filters button.on,
+      .filters button:hover {
+        background: var(--accent);
+        color: #14100a;
+        border-color: var(--accent);
+      }
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 22px;
+      }
+      .proj {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+      }
+      .proj:hover {
+        border-color: var(--accent);
+        transform: translateY(-6px);
+      }
+
+      /* THUMBNAIL PROYEK (gambar dikunci di dalam kotak) */
+      .thumb {
+        position: relative;
+        overflow: hidden;
+        height: 220px;
+      }
+      .thumb img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 14px;
+        transition: transform 0.5s;
+      }
+      .proj:hover .thumb img {
+        transform: scale(1.06);
+      }
+      .thumb em {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font-style: normal;
+        font-size: 0.7rem;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 3px 11px;
+        border-radius: 99px;
+      }
+      .t1 {
+        background: linear-gradient(135deg, #d91f26, #7a0e12);
+      }
+      .t2 {
+        background: linear-gradient(135deg, #5aa02c, #2c5a12);
+      }
+      .t3 {
+        background: linear-gradient(135deg, #a8651c, #5a3410);
+      }
+      .t4 {
+        background: linear-gradient(135deg, #4d6bff, #1b2a8f);
+      }
+      .t5 {
+        background: linear-gradient(135deg, #7d3c98, #3b1a4f);
+      }
+
+      .pb {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+      }
+      .pb h3 {
+        font-size: 1.02rem;
+      }
+      .pb p {
+        color: var(--muted);
+        font-size: 0.84rem;
+        flex: 1;
+      }
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .stack span {
+        font-size: 0.7rem;
+        padding: 3px 11px;
+        border-radius: 99px;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        color: var(--accent2);
+      }
+      .plink {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .plink:hover {
+        text-decoration: underline;
+      }
+
+      /* TIMELINE */
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 44px;
+      }
+      .tl {
+        border-left: 2px solid var(--line);
+        padding-left: 26px;
+      }
+      .tl .it {
+        position: relative;
+        margin-bottom: 26px;
+      }
+      .tl .it::before {
+        content: '';
+        position: absolute;
+        left: -34px;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--bg);
+      }
+      .tl small {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.76rem;
+      }
+      .tl h4 {
+        font-size: 0.98rem;
+        margin: 2px 0;
+      }
+      .tl p {
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      /* GALLERY */
+      .slider {
+        overflow: hidden;
+        mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      }
+      .track-g {
+        display: flex;
+        gap: 18px;
+        width: max-content;
+        animation: slide var(--t, 40s) linear infinite;
+      }
+      .slider:hover .track-g {
+        animation-play-state: paused;
+      }
+      @keyframes slide {
+        to {
+          transform: translateX(var(--d, -50%));
+        }
+      }
+      .gallery figure {
+        position: relative;
+        flex: 0 0 280px;
+        height: 360px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        cursor: zoom-in;
+      }
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+      .gallery figure:hover img {
+        transform: scale(1.07);
+      }
+      .gallery figcaption {
+        position: absolute;
+        inset: auto 0 0;
+        padding: 34px 16px 14px;
+        font-size: 0.82rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+      }
+      .lb {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        display: none;
+        place-items: center;
+        z-index: 100;
+        cursor: zoom-out;
+        padding: 20px;
+      }
+      .lb.on {
+        display: grid;
+      }
+      .lb img {
+        max-height: 92vh;
+        max-width: 92vw;
+        border-radius: 12px;
+      }
+
+      /* ACTIVITIES */
+      .tw {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.86rem;
+        min-width: 640px;
+      }
+      th {
+        text-align: left;
+        padding: 14px 18px;
+        color: var(--accent);
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--line);
+      }
+      td {
+        padding: 13px 18px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+      }
+      td b {
+        color: var(--text);
+        font-weight: 500;
+      }
+      tr:last-child td {
+        border: 0;
+      }
+      tbody tr:hover {
+        background: rgba(255, 138, 31, 0.05);
+      }
+      .bdg {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 99px;
+        font-size: 0.74rem;
+        font-weight: 600;
+        border: 1px solid;
+      }
+      .b-p {
+        color: #6ec1ff;
+        border-color: rgba(110, 193, 255, 0.4);
+        background: rgba(110, 193, 255, 0.08);
+      }
+      .b-c {
+        color: #8be28b;
+        border-color: rgba(139, 226, 139, 0.4);
+        background: rgba(139, 226, 139, 0.08);
+      }
+      .b-l {
+        color: var(--accent2);
+        border-color: rgba(255, 138, 31, 0.5);
+        background: rgba(255, 138, 31, 0.1);
+      }
+      .b-a {
+        color: #d9a7ff;
+        border-color: rgba(217, 167, 255, 0.4);
+        background: rgba(217, 167, 255, 0.08);
+      }
+
+      /* AWARDS */
+      .awards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+      }
+      .award {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px;
+      }
+      .award b {
+        color: var(--accent);
+        font-size: 0.78rem;
+      }
+      .award h4 {
+        font-size: 0.98rem;
+        margin: 4px 0;
+      }
+      .award p {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      /* CONTACT */
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+      }
+      .cl a,
+      .cl div {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 18px;
+        margin-bottom: 12px;
+        font-size: 0.88rem;
+        transition: 0.25s;
+      }
+      .cl a:hover {
+        border-color: var(--accent);
+      }
+      form {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+        display: grid;
+        gap: 14px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px 14px;
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.88rem;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      .sig {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: var(--accent);
+        font-size: 1.6rem;
+        margin-top: 18px;
+      }
+
+      /* SCROLL REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.8s;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 860px) {
+        .hero,
+        .about,
+        .skills,
+        .two,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+        .hero .photo-wrap {
+          order: -1;
+          width: min(280px, 80%);
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .links {
+          position: absolute;
+          top: 68px;
+          left: 0;
+          right: 0;
+          background: var(--bg2);
+          flex-direction: column;
+          padding: 20px 6%;
+          gap: 16px;
+          display: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .links.open {
+          display: flex;
+        }
+        .burger {
+          display: block;
+        }
+        .chip {
+          display: none;
+        }
+        .gallery figure {
+          flex-basis: 220px;
+          height: 290px;
+        }
+        .social-links {
+          gap: 12px;
+        }
+      }
+      @media (max-width: 480px) {
+        section {
+          padding: 68px 0;
+        }
+        #home {
+          padding-top: 112px;
+        }
+        .hero h1 {
+          font-size: 2.45rem;
+        }
+        .info div {
+          font-size: 0.8rem;
+        }
+        .social-icon {
+          width: 48px;
+          height: 48px;
+          min-width: 48px;
+          flex-basis: 48px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        .slider {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="container">
+        <a href="#home" class="logo">Fahzya<b>.</b></a>
+        <ul class="links" id="links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn" style="padding: 8px 20px">Let's Talk</a>
+        <button class="burger" id="burger" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home">
+        <div class="container hero">
+          <div>
+            <p class="hello">— HALO, SAYA</p>
+            <h1>Fahzya <span class="hl">Ubung Irang</span></h1>
+            <p class="role"><span id="typed"></span></p>
+            <p class="desc">
+              Mahasiswa Teknik Informatika UKSW yang tertarik pada UI/UX Design dan Frontend Development. Senang mengubah ide menjadi desain digital yang menarik, intuitif, dan fungsional.
+              <b>Hi, I'm Zia!</b> Mari terhubung dan berkolaborasi menciptakan ide-ide menarik bersama!
+            </p>
+            <div class="cta">
+              <a href="#projects" class="btn primary">Lihat Karya</a>
+              <a href="#contact" class="btn">Hubungi Saya</a>
+            </div>
+
+            <!-- SOCIAL MEDIA -->
+            <div class="social-links" aria-label="Media sosial dan kontak">
+              <a href="https://github.com/fahzya" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" />
+              </a>
+              <a href="https://www.linkedin.com/in/fahzyaubungirang" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram" />
+              </a>
+              <a href="mailto:fahzyaaubung@gmail.com" class="social-icon" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="photo-wrap">
+            <img src="Zia1.jpeg" alt="Foto Fahzya Ubung Irang" />
+            <span class="chip">Frontend Dev</span>
+            <span class="chip">Data Science</span>
+            <span class="chip">UI/UX Designer</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container reveal">
+          <p class="label">Tentang Saya</p>
+          <h2>Membangun desain yang <span>indah</span> dan <span>berfungsi</span></h2>
+          <div class="about">
+            <div>
+              <p>Saya mahasiswa semester 5 Teknik Informatika di Universitas Kristen Satya Wacana dengan peminatan <b>Data Science</b>, serta ketertarikan kuat di <b>UI/UX Design</b> dan <b>Web Development</b>.</p>
+              <p>
+                Saya terbiasa menyusun user flow, wireframe, prototype, layout, hingga implementasi dasar frontend dengan Figma, Canva, HTML, CSS, dan JavaScript. Selain desain, saya terus belajar agar karya yang dibuat tidak hanya enak
+                dilihat, tetapi juga bisa dipakai di dunia nyata.
+              </p>
+              <p>Di luar kuliah, saya aktif berorganisasi di HMPTI FTI UKSW dan terlibat dalam kepanitiaan acara kampus.</p>
+              <div class="stats">
+                <div class="stat"><b data-n="5">0</b><small>Proyek Desain & Web</small></div>
+                <div class="stat"><b data-n="4">0</b><small>Sertifikat & Kursus</small></div>
+                <div class="stat"><b data-n="6">0</b><small>Medali Olimpiade Sains</small></div>
+                <div class="stat"><b data-n="13">0</b><small>Kegiatan Kemahasiswaan</small></div>
+              </div>
+            </div>
+            <div class="info">
+              <div><span>Nama</span><b>Fahzya Ubung Irang</b></div>
+              <div><span>Panggilan</span><b>Zia</b></div>
+              <div><span>Asal</span><b>Luwu, Sulawesi Selatan</b></div>
+              <div><span>Kampus</span><b>Universitas Kristen Satya Wacana</b></div>
+              <div><span>Prodi</span><b>S1 Teknik Informatika (2024 – sekarang)</b></div>
+              <div><span>Lokasi</span><b>Salatiga, Jawa Tengah</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOCUS -->
+      <section>
+        <div class="container reveal">
+          <p class="label">Fokus Saya</p>
+          <h2>Apa yang saya <span>kerjakan</span></h2>
+          <div class="grid4">
+            <div class="card">
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+                  />
+                </svg>
+              </div>
+              <h3>UI/UX Design</h3>
+              <p>User flow, wireframe, prototype, dan desain antarmuka mobile maupun web di Figma.</p>
+            </div>
+            <div class="card">
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m18 16 4-4-4-4" />
+                  <path d="m6 8-4 4 4 4" />
+                  <path d="m14.5 4-5 16" />
+                </svg>
+              </div>
+              <h3>Frontend Development</h3>
+              <p>Membangun antarmuka responsif dengan HTML, CSS, JavaScript, termasuk implementasi CRUD.</p>
+            </div>
+            <div class="card">
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                  <path d="M18 17V9" />
+                  <path d="M13 17V5" />
+                  <path d="M8 17v-3" />
+                </svg>
+              </div>
+              <h3>Data Science</h3>
+              <p>Pengolahan, analisis, dan visualisasi data dengan Python.</p>
+            </div>
+            <div class="card">
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                  <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+                  <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+                  <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+                  <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+                  <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+                  <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+                  <path d="M6 18a4 4 0 0 1-1.967-.516" />
+                  <path d="M19.967 17.484A4 4 0 0 1 18 18" />
+                </svg>
+              </div>
+              <h3>Machine & Deep Learning</h3>
+              <p>Regresi, klasifikasi, clustering, hingga pengenalan wajah/citra.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container reveal">
+          <p class="label">Keahlian</p>
+          <h2>Skills & <span>Tools</span></h2>
+          <div class="skills">
+            <!-- KOLOM KIRI -->
+            <div>
+              <div class="grp">
+                <div class="gh"><span>Frontend & Backend</span><span>70%</span></div>
+                <div class="track"><div class="fill" data-w="70"></div></div>
+                <div class="pills">
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" />HTML5</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" />CSS3</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" />JavaScript</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="" />PHP</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" />Python</span>
+                </div>
+              </div>
+
+              <div class="grp">
+                <div class="gh"><span>UI/UX</span><span>85%</span></div>
+                <div class="track"><div class="fill" data-w="85"></div></div>
+                <div class="pills">
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" />Figma</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt="" />Photoshop</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-original.svg" alt="" />Adobe XD</span>
+                </div>
+              </div>
+
+              <div class="grp">
+                <div class="gh"><span>Machine Learning</span><span>60%</span></div>
+                <div class="track"><div class="fill" data-w="60"></div></div>
+                <div class="pills">
+                  <span class="pill main">Regresi Linier</span>
+                  <span class="pill main">Regresi Logistik / Klasifikasi</span>
+                  <span class="pill main">Decision Tree & Random Forest</span>
+                  <span class="pill main">SVM</span>
+                  <span class="pill main">K-Means Clustering</span>
+                </div>
+              </div>
+
+              <div class="grp">
+                <div class="gh"><span>Deep Learning</span><span>40%</span></div>
+                <div class="track"><div class="fill" data-w="40"></div></div>
+                <div class="pills">
+                  <span class="pill main">Facial / Image Recognition</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KOLOM KANAN -->
+            <div>
+              <div class="grp">
+                <div class="gh"><span>Framework</span><span>45%</span></div>
+                <div class="track"><div class="fill" data-w="45"></div></div>
+                <div class="pills">
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" />React.js</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" />Tailwind CSS</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="" />Flutter</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="" />Vue.js</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" style="filter: invert(1)" />Next.js</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="" />Bootstrap</span>
+                </div>
+              </div>
+
+              <div class="grp">
+                <div class="gh"><span>Database</span><span>50%</span></div>
+                <div class="track"><div class="fill" data-w="50"></div></div>
+                <div class="pills">
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" />MySQL</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" />MongoDB</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" />PostgreSQL</span>
+                </div>
+              </div>
+
+              <div class="grp">
+                <div class="gh"><span>Tools & Platform</span><span>70%</span></div>
+                <div class="track"><div class="fill" data-w="70"></div></div>
+                <div class="pills">
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" />Git</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" style="filter: invert(1)" />GitHub</span>
+                  <span class="pill main"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" />VS Code</span>
+                  <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="" />Postman</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="container reveal">
+          <p class="label">Portofolio</p>
+          <h2>Proyek <span>Pilihan</span></h2>
+
+          <div class="filters">
+            <button class="on" data-f="all">Semua</button>
+            <button data-f="uiux">UI/UX</button>
+            <button data-f="web">Web</button>
+          </div>
+
+          <div class="projects">
+            <article class="proj" data-c="uiux">
+              <div class="thumb t1">
+                <img src="linkAja1.png" alt="Desain LinkAja Redesign" loading="lazy" onerror="this.remove()" />
+                <em>UI/UX Case Study · 2026</em>
+              </div>
+              <div class="pb">
+                <h3>LinkAja Redesign: Financial Chart & AI Assistant</h3>
+                <p>Redesain pengalaman pengguna LinkAja pada halaman riwayat transaksi, dengan grafik pemasukan-pengeluaran dan AI Financial Assistant untuk meningkatkan literasi keuangan.</p>
+                <div class="stack"><span>Figma</span><span>User Flow</span><span>Prototype</span></div>
+                <a class="plink" href="#" target="_blank" rel="noopener noreferrer">Lihat Prototype</a>
+              </div>
+            </article>
+
+            <article class="proj" data-c="uiux">
+              <div class="thumb t2">
+                <img src="smartframing1.png"alt="Desain Smart Farming" loading="lazy" onerror="this.remove()" />
+                <em>UI/UX Case Study · 2026</em>
+              </div>
+              <div class="pb">
+                <h3>Smart Farming: Deteksi Hama Berbasis AI</h3>
+                <p>Aplikasi pertanian untuk memantau cuaca, kondisi lahan, dan tanaman, dengan fitur AI Plant Scan lewat kamera yang memberi rekomendasi penanganan.</p>
+                <div class="stack"><span>Figma</span><span>AI Feature</span><span>Mobile App</span></div>
+                <a class="plink" href="#" target="_blank" rel="noopener noreferrer">Lihat Prototype</a>
+              </div>
+            </article>
+
+            <article class="proj" data-c="web">
+              <div class="thumb t4">
+                <img src="T hreekost.png" alt="Dashboard THREEKOST" loading="lazy" onerror="this.remove()" />
+                <em>Web Programming · 2025</em>
+              </div>
+              <div class="pb">
+                <h3>THREEKOST Admin Dashboard</h3>
+                <p>Dashboard admin untuk manajemen kos: ringkasan pendapatan, kamar, penyewa aktif, booking, dan status pembayaran dalam bentuk grafik dan tabel.</p>
+                <div class="stack"><span>Figma</span><span>Dashboard</span><span>Web</span></div>
+                <a class="plink" href="#" target="_blank" rel="noopener noreferrer">Lihat Desain</a>
+              </div>
+            </article>
+
+            <article class="proj" data-c="web">
+              <div class="thumb t5">
+                <img src="Ziabutik1.png" alt="Dashboard Zia Boutique" loading="lazy" onerror="this.remove()" />
+                <em>HCI Project · 2024</em>
+              </div>
+              <div class="pb">
+                <h3>Zia Boutique: Admin Dashboard Web App</h3>
+                <p>Aplikasi web admin butik dengan login, ringkasan produk, daftar produk, dan fitur CRUD untuk menambah, melihat, mengubah, serta menghapus data.</p>
+                <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>CRUD</span></div>
+                <a class="plink" href="https://github.com/fahzya" target="_blank" rel="noopener noreferrer">Lihat di GitHub</a>
+              </div>
+            </article>
+
+            <article class="proj" data-c="uiux">
+              <div class="thumb t3">
+                <img src="cookies1.png" alt="Desain The Cookie & Co" loading="lazy" onerror="this.remove()" />
+                <em>Mobile App Design · 2024</em>
+              </div>
+              <div class="pb">
+                <h3>The Cookie & Co: Mobile App Design</h3>
+                <p>Proyek pertama desain aplikasi mobile toko kue online: splash, login, beranda, detail produk, pencarian, keranjang, favorit, dan checkout.</p>
+                <div class="stack"><span>Figma</span><span>Mobile UI</span><span>Layout</span></div>
+                <a class="plink" href="#" target="_blank" rel="noopener noreferrer">Lihat Prototype</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNEY -->
+      <section id="journey">
+        <div class="container reveal">
+          <p class="label">Perjalanan</p>
+          <h2>Pendidikan & <span>Pengalaman</span></h2>
+          <div class="two">
+            <div>
+              <h3 style="margin-bottom: 20px">Pendidikan & Sertifikasi</h3>
+              <div class="tl">
+                <div class="it">
+                  <small>19 Agu 2024 – Sekarang</small>
+                  <h4>Teknik Informatika</h4>
+                  <p>Universitas Kristen Satya Wacana</p>
+                </div>
+                <div class="it">
+                  <small>19 Feb 2026</small>
+                  <h4>Data Analyst Bootcamp</h4>
+                  <p>Special Skills</p>
+                </div>
+                <div class="it">
+                  <small>16 Des 2025</small>
+                  <h4>Fundamental of Deep Learning</h4>
+                  <p>NVIDIA</p>
+                </div>
+                <div class="it">
+                  <small>13 Nov 2025</small>
+                  <h4>Belajar Dasar AI</h4>
+                  <p>Dicoding</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 style="margin-bottom: 20px">Organisasi & Kepanitiaan</h3>
+              <div class="tl">
+                <div class="it">
+                  <small>2026 – Sekarang</small>
+                  <h4>Divisi Akademik & Aspirasi, HMPTI FTI UKSW</h4>
+                  <p>Mendukung perkembangan akademik mahasiswa dan mengoordinasikan asisten dosen.</p>
+                </div>
+                <div class="it">
+                  <small>2026</small>
+                  <h4>Liaison Officer, FIT 2026</h4>
+                  <p>Liaison Officer pada rangkaian acara FIT 2026 di FTI UKSW.</p>
+                </div>
+                <div class="it">
+                  <small>2025</small>
+                  <h4>Liaison Officer, Indonesia International Culture Festival</h4>
+                  <p>Mendampingi delegasi dan mendukung kelancaran festival budaya internasional UKSW.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITIES -->
+      <section id="activities">
+        <div class="container reveal">
+          <p class="label">Kegiatan Kemahasiswaan</p>
+          <h2>Kegiatan yang <span>Pernah / Sedang</span> Diikuti</h2>
+          <div class="tw">
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Jenis Kegiatan</th>
+                  <th>Status dalam Kegiatan</th>
+                  <th>Waktu dan Tempat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><b>IICF 2025</b></td>
+                  <td><span class="bdg b-l">Volunteer LO</span></td>
+                  <td>UKSW 2025</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><b>Blue Ambassador Batch 2</b></td>
+                  <td><span class="bdg b-a">Anggota</span></td>
+                  <td>Hybrid 2026</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><b>FTI Days 2025</b></td>
+                  <td><span class="bdg b-c">Panitia</span></td>
+                  <td>FTI 2025</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><b>Himpunan Mahasiswa TI 2026 (HMPTI)</b></td>
+                  <td><span class="bdg b-a">Anggota Divisi Akademik & Aspirasi</span></td>
+                  <td>UKSW FTI</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><b>Talkshow Blockchain 101</b></td>
+                  <td><span class="bdg b-c">Panitia</span></td>
+                  <td>FTI 2026</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td><b>ACLEC 2026</b></td>
+                  <td><span class="bdg b-c">Panitia</span></td>
+                  <td>FTI 2025</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td><b>UI/UX MIAxLinkAja 2025</b></td>
+                  <td><span class="bdg b-p">Peserta</span></td>
+                  <td>Online (UPNVJ) 2025</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td><b>UI/UX SEFEST 2026</b></td>
+                  <td><span class="bdg b-p">Peserta</span></td>
+                  <td>Online (Telkom Surabaya) 2026</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td><b>FIT Competition 2026</b></td>
+                  <td><span class="bdg b-p">Peserta</span></td>
+                  <td>Online (UKSW)</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td><b>Kuliah Umum</b></td>
+                  <td><span class="bdg b-c">Panitia</span></td>
+                  <td>FTI 2026</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td><b>Samsung Solve For Tomorrow 2026</b></td>
+                  <td><span class="bdg b-p">Peserta</span></td>
+                  <td>Online (SFT) 2026</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td><b>The Forge Incubation (Bootcamp Data Science)</b></td>
+                  <td><span class="bdg b-p">Peserta</span></td>
+                  <td>FTI 2026</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td><b>FIT 2026</b></td>
+                  <td><span class="bdg b-l">Liaison Officer</span></td>
+                  <td>FTI 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery">
+        <div class="container reveal">
+          <p class="label">Dokumentasi</p>
+          <h2>Galeri <span>Kegiatan</span></h2>
+          <div class="slider">
+            <div class="gallery track-g" id="gtrack">
+              <figure>
+                <img src="IICF 1.jpg" alt="Kegiatan IICF 2025" loading="lazy" />
+                <figcaption>Liaison Officer · IICF 2025</figcaption>
+              </figure>
+              <figure>
+                <img src="HMPTI1.jpeg" alt="Academics & Aspiration HMPTI 2026" loading="lazy" />
+                <figcaption>Academics & Aspiration HMPTI 2026</figcaption>
+              </figure>
+              <figure>
+                <img src="BLU2.jpg" alt="Blu BCA Ambassador 2026" loading="lazy" onerror="this.closest('figure').remove()" />
+                <figcaption>Blu BCA Ambassador 2026</figcaption>
+              </figure>
+              <figure>
+                <img src="IICF 2.jpg" alt="IICF 2025 Closing" loading="lazy" />
+                <figcaption>Festa Budaya & Closing · IICF 2025</figcaption>
+              </figure>
+              <figure>
+                <img src="Zia.jpeg" alt="Staff Academics & Aspiration HMPTI 2026" loading="lazy" />
+                <figcaption>Staff Academics & Aspiration HMPTI 2026</figcaption>
+              </figure>
+              <figure>
+                <img src="BLU1.jpg" alt="Blu BCA Ambassador 2026" loading="lazy" onerror="this.closest('figure').remove()" />
+                <figcaption>Blu BCA Ambassador 2026</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AWARDS -->
+      <section>
+        <div class="container reveal">
+          <p class="label">Prestasi</p>
+          <h2>Penghargaan <span>Akademik</span></h2>
+          <div class="awards">
+            <div class="award">
+              <b>JUN 2022 · NASIONAL</b>
+              <h4>Indonesian Science Competition</h4>
+              <p>Emas Biologi · Emas Matematika · Perak Fisika</p>
+            </div>
+            <div class="award">
+              <b>MEI 2022 · NASIONAL & PROVINSI</b>
+              <h4>Indonesian Science Olympiad</h4>
+              <p>Perak Matematika · Perunggu Fisika (nasional) · Perunggu Biologi (provinsi)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container reveal">
+          <p class="label">Kontak</p>
+          <h2>Mari <span>Berkolaborasi</span></h2>
+          <div class="contact">
+            <div class="cl">
+              <p style="color: var(--muted); margin-bottom: 18px; font-size: 0.9rem">Terbuka untuk belajar hal baru, magang, dan kolaborasi proyek yang bermakna.</p>
+              <a href="mailto:fahzyaaubung@gmail.com">fahzyaaubung@gmail.com</a>
+              <a href="https://wa.me/6285135097156" target="_blank" rel="noopener noreferrer">+62 851-3509-7156</a>
+              <a href="https://www.linkedin.com/in/fahzyaubungirang" target="_blank" rel="noopener noreferrer">linkedin.com/in/fahzyaubungirang</a>
+              <a href="https://github.com/fahzya" target="_blank" rel="noopener noreferrer">github.com/fahzya</a>
+              <div>Salatiga, Jawa Tengah</div>
+              <p class="sig">Fahzya Ubung Irang</p>
+            </div>
+            <form id="form">
+              <input id="n" name="name" type="text" placeholder="Nama kamu" required />
+              <input id="e" name="email" type="email" placeholder="Email kamu" required />
+              <input id="s" name="subject" type="text" placeholder="Subjek" />
+              <textarea id="m" name="message" placeholder="Ceritakan tentang proyekmu..." required></textarea>
+              <button class="btn primary" type="submit">Kirim Pesan →</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Fahzya Ubung Irang · Teknik Informatika UKSW · Dibuat dengan HTML, CSS & JavaScript</footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Tampilan gambar">
+      <img src="" alt="Gambar dokumentasi ukuran besar" />
+    </div>
+
+    <script>
+      /* MOBILE MENU */
+      const links = document.getElementById('links');
+      const burger = document.getElementById('burger');
+      burger.addEventListener('click', () => {
+        const isOpen = links.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        burger.textContent = isOpen ? '✕' : '☰';
+      });
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          links.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.textContent = '☰';
+        });
+      });
+
+      /* TYPING EFFECT */
+      const words = ['UI/UX Designer', 'Frontend Developer', 'Data Science Enthusiast'];
+      const typedElement = document.getElementById('typed');
+      let wordIndex = 0,
+        charIndex = 0,
+        isDeleting = false;
+      function typeEffect() {
+        const currentWord = words[wordIndex];
+        typedElement.textContent = currentWord.slice(0, charIndex);
+        if (!isDeleting && charIndex < currentWord.length) {
+          charIndex++;
+          setTimeout(typeEffect, 90);
+          return;
+        }
+        if (isDeleting && charIndex > 0) {
+          charIndex--;
+          setTimeout(typeEffect, 45);
+          return;
+        }
+        if (!isDeleting && charIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1400);
+          return;
+        }
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 300);
+      }
+      typeEffect();
+
+      /* SCROLL REVEAL, COUNTERS, SKILL BARS */
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const section = entry.target;
+            section.classList.add('show');
+            section.querySelectorAll('[data-n]').forEach((element) => {
+              const maxValue = Number(element.dataset.n);
+              let currentValue = 0;
+              const counter = setInterval(() => {
+                currentValue++;
+                element.textContent = currentValue;
+                if (currentValue >= maxValue) clearInterval(counter);
+              }, 1000 / maxValue);
+            });
+            section.querySelectorAll('.fill').forEach((bar) => {
+              bar.style.width = bar.dataset.w + '%';
+            });
+            observer.unobserve(section);
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+      /* ACTIVE NAVIGATION */
+      const sections = document.querySelectorAll('section[id]');
+      function updateActiveNavigation() {
+        const scrollPosition = window.scrollY + 120;
+        sections.forEach((section) => {
+          const navLink = links.querySelector('a[href="#' + section.id + '"]');
+          if (!navLink) return;
+          navLink.classList.toggle('active', scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight);
+        });
+      }
+      window.addEventListener('scroll', updateActiveNavigation);
+      updateActiveNavigation();
+
+      /* PROJECT FILTER */
+      const filterButtons = document.querySelectorAll('.filters button');
+      const projectCards = document.querySelectorAll('.proj');
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selected = button.dataset.f;
+          filterButtons.forEach((b) => b.classList.remove('on'));
+          button.classList.add('on');
+          projectCards.forEach((p) => {
+            p.style.display = selected === 'all' || p.dataset.c === selected ? '' : 'none';
+          });
+        });
+      });
+
+      /* LIGHTBOX */
+      const lightbox = document.getElementById('lb');
+      const lightboxImage = lightbox.querySelector('img');
+      const galleryTrack = document.getElementById('gtrack');
+      galleryTrack.addEventListener('click', (event) => {
+        const clicked = event.target.closest('img');
+        if (!clicked) return;
+        lightboxImage.src = clicked.src;
+        lightboxImage.alt = clicked.alt;
+        lightbox.classList.add('on');
+      });
+      function closeLightbox() {
+        lightbox.classList.remove('on');
+        lightboxImage.removeAttribute('src');
+      }
+      lightbox.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      /* AUTO-SLIDING GALLERY */
+      function initializeGallery() {
+        const track = document.getElementById('gtrack');
+        const slider = track.parentElement;
+        const originalItems = [...track.children];
+        if (!originalItems.length) return;
+        const originalWidth = track.scrollWidth + 18;
+        while (track.scrollWidth < slider.clientWidth + originalWidth) {
+          originalItems.forEach((item) => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+          });
+        }
+        track.style.setProperty('--d', '-' + originalWidth + 'px');
+        track.style.setProperty('--t', originalWidth / 45 + 's');
+      }
+      window.addEventListener('load', initializeGallery);
+
+      /* CONTACT FORM -> EMAIL APP */
+      document.getElementById('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('n').value.trim();
+        const email = document.getElementById('e').value.trim();
+        const subject = document.getElementById('s').value.trim() || 'Kolaborasi';
+        const message = document.getElementById('m').value.trim();
+        const body = ['Halo Fahzya,', '', message, '', 'Nama: ' + name, 'Email: ' + email].join('\n');
+        window.location.href = 'mailto:fahzyaaubung@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    </script>
+  </body>
+</html>
